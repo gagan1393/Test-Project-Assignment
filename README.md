@@ -30,7 +30,7 @@ com.qa.util - Constants - This is final static constant file, where all the Path
 com.qa.util - ElementUtil - Here i have created the utilities for click, sendkeys, element tobe visible, selectavalue from dropdown and javascript excutor
 Then under src/test/java - these are folder i have created
 
-ApplicationHooks - in this class, i am calling the driverfactoryclass and webdriver. Here i ahve given the Hooks also using @Before(order = ) and @After(order = )
+ApplicationHooks - in this class, i am calling the driverfactoryclass and webdriver. Here i have given the Hooks also using @Before(order = ) and @After(order = )
 In the same class i have created a method for screenshot also, if any scenario failed, the screenshot will be taken and paste it in the extent report
 StepDefinition - I have written the testcases for the feature file and verifying using Junit Assertion. I have created an object for page class and calling all the methods.
 TestRunner - Here i am calling the path of feature file and step definitions files. And from here we have to run the testcases.
@@ -99,7 +99,7 @@ Run Test Suite
   
   # If you have to run on Parallel Mode
   Just we have make a true in maven-failsafe-plugin in pom.xml
-  Then it will run on parellel mode, right now i have make it false
+  Then it will run on parellel mode, right now its false
   <!-- UNCOMMENT BELOW 3 LINES - To execute using parallel or combination 
 								option -->
 							<parallel>methods</parallel>
@@ -109,14 +109,15 @@ Run Test Suite
   
 #How to use this framework?
 
-Clone the repository to your workspace.
-Open the command prompt and change the directory to workspace
-Run this command - git clone https://github.com/gagan1393/Test-Project-Assignment.git
-It will save it in your workspace directory
-Now from command prompt run this command - mvn verify
-It will start running the Tests
-After the Tests are over, the extent report will be available inside the test-output folder
-if anycase got failed, the screenshot will also be pasted inside the extent reports. (for demo purpose: i have delibrately failed 2 cases earlier. the reports are avialable inside the testout folder).
+1. Clone the repository to your workspace.
+2. Open the command prompt and change the directory to workspace
+3. Run this command - git clone https://github.com/gagan1393/Test-Project-Assignment.git
+4. It will save it in your workspace directory
+5. Now from command prompt run this command - mvn verify
+6. It will start running the Tests
+7. After the Tests are over, the extent report will be available inside the test-output folder
+8. if anycase got failed, the screenshot will also be pasted inside the extent reports. (for demo purpose: i have delibrately failed 2 cases earlier. the reports are avialable inside the testout folder).
+
 Please feel free to give the feedback :)
 
 Regards
