@@ -61,71 +61,6 @@ public class AccountsPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ID_CUSTOMERTITLE)).click();
 	}
 
-	public void enterFirstName(String firstName) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERFIRSTNAME), Constants.EXPLICIT_WAIT, firstName);
-	}
-
-	public void enterLastName(String LastName) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERLASTNAME), Constants.EXPLICIT_WAIT, LastName);
-	}
-
-	public void enterPassword(String Password) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERPASSWORD), Constants.EXPLICIT_WAIT, Password);
-	}
-
-	public void selectDaysInDateOfBirth(int day) {
-
-		ElementUtil.selectValueFromDropDownByText(driver.findElement(ID_CUSTOMERDOBDAYS), String.valueOf(day));
-	}
-
-	public void selectMonthInDateOfBirth(String month) {
-
-		ElementUtil.selectValueFromDropDownByText(driver.findElement(ID_CUSTOMERDOBMONTHS), month);
-	}
-
-	public void selectYearsInDateOfBirth(int year) {
-
-		ElementUtil.selectValueFromDropDownByText(driver.findElement(ID_CUSTOMERDOBYEARS), String.valueOf(year));
-	}
-
-	public void enterCompanyName(String companyName) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERCOMPANY), Constants.EXPLICIT_WAIT, companyName);
-	}
-
-	public void enterAddress(String companyAdress) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERADDRESS), Constants.EXPLICIT_WAIT, companyAdress);
-	}
-
-	public void enterCity(String city) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERCITY), Constants.EXPLICIT_WAIT, city);
-	}
-
-	public void selectState(String State) {
-
-		ElementUtil.selectValueFromDropDownByText(driver.findElement(ID_CUSTOMERSTATE), State);
-	}
-
-	public void enterPostCode(int Postcode) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERPOSTCODE), Constants.EXPLICIT_WAIT, String.valueOf(Postcode));
-	}
-
-	public void enterCustomerPhoneNumber(String phonenumber) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERPHONENUMBER), Constants.EXPLICIT_WAIT, phonenumber);
-	}
-
-	public void enterAliasAddress(String AliasAddress) {
-
-		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERALAISADDRESS), Constants.EXPLICIT_WAIT, AliasAddress);
-	}
-
 	public void clickOnRegisterButton() {
 		WebDriverWait wait = new WebDriverWait(driver, Constants.EXPLICIT_WAIT);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(ID_REGISTERBUTTON)).click();
@@ -147,6 +82,19 @@ public class AccountsPage {
 		System.out.println(text);
 		return text;	
 	}
-	
 
+	public void getPersonalInformationData(PersonalInformation personalinformation){
+
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERFIRSTNAME), Constants.EXPLICIT_WAIT, personalinformation.getFirstName());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERLASTNAME), Constants.EXPLICIT_WAIT, personalinformation.getLastName());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERPASSWORD), Constants.EXPLICIT_WAIT, personalinformation.getPassword());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERCOMPANY), Constants.EXPLICIT_WAIT, personalinformation.getCompany());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERADDRESS), Constants.EXPLICIT_WAIT, personalinformation.getAddress());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERCITY), Constants.EXPLICIT_WAIT, personalinformation.getCity());
+		ElementUtil.selectValueFromDropDownByText(driver.findElement(ID_CUSTOMERSTATE), personalinformation.getState());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERPOSTCODE), Constants.EXPLICIT_WAIT, personalinformation.getPincode());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERPHONENUMBER), Constants.EXPLICIT_WAIT, personalinformation.getPhoneNumber());
+		ElementUtil.sendKeys(driver, driver.findElement(ID_CUSTOMERALAISADDRESS), Constants.EXPLICIT_WAIT, personalinformation.getAddressAlias());
+
+	}
 }

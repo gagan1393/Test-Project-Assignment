@@ -1,5 +1,7 @@
 package stepdefinitions;
 
+import com.pages.PersonalInformation;
+import io.cucumber.datatable.DataTable;
 import org.junit.Assert;
 
 import com.pages.AccountsPage;
@@ -10,9 +12,12 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.List;
+import java.util.Map;
+
 
 public class AccountsPageSteps {
-	
+
 	private AccountsPage accountsPage = new AccountsPage(DriverFactory.getDriver());
 	
 	@Given("user is on Accounts page")
@@ -44,55 +49,19 @@ public class AccountsPageSteps {
 
 	}
 
-	@Then("user enter the first Name {string}")
-	public void user_enter_the_first_name(String firstName) {
-		accountsPage.enterFirstName(firstName);
-	}
+    @Then("user enter following user details")
+    public void user_enter_following_user_details(DataTable dataTable) {
 
-	@Then("user enter the last Name {string}")
-	public void user_enter_the_last_name(String LastName) {
-		accountsPage.enterLastName(LastName);
-	}
+        List<Map<String, String>> userList = dataTable.asMaps(String.class, String.class);
+        System.out.println(userList);
+        PersonalInformation personalinfo = new PersonalInformation(userList.get(0).get("FirstName"), userList.get(0).get("LastName"),
+                userList.get(0).get("Password"), userList.get(0).get("Company"),
+                userList.get(0).get("Address"), userList.get(0).get("City"),
+                userList.get(0).get("State"), userList.get(0).get("Pincode"),
+                userList.get(0).get("PhoneNumber"), userList.get(0).get("AddressAlias"));
 
-	@Then("user enter the password {string}")
-	public void user_enter_the_password(String Password) {
-		accountsPage.enterPassword(Password);
-	}
-
-	@Then("user enter the company {string}")
-	public void user_enter_the_company(String companyName) {
-		accountsPage.enterCompanyName(companyName);
-	}
-
-	@Then("user enter the Address {string}")
-	public void user_enter_the_address(String companyAdress) {
-		accountsPage.enterAddress(companyAdress);
-	}
-
-	@Then("user enter the city {string}")
-	public void user_enter_the_city(String city) {
-		accountsPage.enterCity(city);
-	}
-
-	@Then("user enter the state {string}")
-	public void user_enter_the_state(String State) {
-		accountsPage.selectState(State);
-	}
-
-	@Then("user enter the pincode {int}")
-	public void user_enter_the_pincode(Integer Postcode) {
-		accountsPage.enterPostCode(Postcode);
-	}
-
-	@Then("user enter the Phone Number {string}")
-	public void user_enter_the_phone_number(String phonenumber) {
-		accountsPage.enterCustomerPhoneNumber(phonenumber);
-	}
-
-	@Then("user enter the address of an alias {string}")
-	public void user_enter_the_address_of_an_alias(String AliasAddress) {
-		accountsPage.enterAliasAddress(AliasAddress);
-	}
+        accountsPage.getPersonalInformationData(personalinfo);
+    }
 
 	@Then("user click on Register button")
 	public void user_click_on_register_button() {

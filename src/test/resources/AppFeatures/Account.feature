@@ -2,22 +2,15 @@ Feature: Account Page Feature
 
 Background:
 Given user is on Accounts page
-When user enters the emailID "testingworld99888@gmail.com"
+When user enters the emailID "testingworld99677@gmail.com"
 Then user click on create an account
 
 
 Scenario: Accounts page creation
 Then user enter the title in personal information
-And user enter the first Name "sam"
-And user enter the last Name "peter"
-And user enter the password "peter@12345"
-And user enter the company "javaworld"
-And user enter the Address "street2 opposite park"
-And user enter the city "Newyork"
-And user enter the state "Alaska"
-And user enter the pincode 12345
-And user enter the Phone Number "9999999999"
-And user enter the address of an alias "hellworld" 
+And user enter following user details
+  | FirstName | LastName | Password| Company | Address | City | State | Pincode | PhoneNumber | AddressAlias |
+  | sam | peter | peter@12345| javaworld | street2 opposite park | Newyork | Alaska | 12345 | 9999999999 | hellworld |
 Then user click on Register button
 And user verify the FirstName and LastName "sam peter" showing correct
 Then user click on signout button
